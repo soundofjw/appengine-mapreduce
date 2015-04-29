@@ -1160,6 +1160,7 @@ class _GoogleCloudStorageKeyValueOutputWriter(
     proto.set_value(value)
     GoogleCloudStorageRecordOutputWriter.write(self, proto.Encode())
 
+
 class GoogleCloudStorageMergedOutputWriter(
         GoogleCloudStorageConsistentOutputWriter):
   """Output writer to Google Cloud Storage using the cloudstorage library.
@@ -1196,7 +1197,7 @@ class GoogleCloudStorageMergedOutputWriter(
                        cls)._generate_filename(writer_spec, name, job_id, num,
              attempt, seg_index)
     file_name += "__" + str(num)
+    #file_name = "%s/%s__%i" % (str(job_id), file_name, str(num))
     return file_name
-
 
 GoogleCloudStorageKeyValueOutputWriter = _GoogleCloudStorageKeyValueOutputWriter

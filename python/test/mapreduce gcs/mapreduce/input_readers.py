@@ -2759,6 +2759,7 @@ class GoogleCloudStorageLineInputReader(InputReader):
     Returns:
       A list of GCSInputReaders corresponding to the specified shards.
     """
+
     reader_spec = _get_params(mapper_spec, allow_old=False)
     bucket = reader_spec[cls.BUCKET_NAME_PARAM]
     filenames = reader_spec[cls.OBJECT_NAMES_PARAM]
@@ -2807,6 +2808,7 @@ class GoogleCloudStorageLineInputReader(InputReader):
          cls.BUFFER_SIZE_PARAM : buffer_size,
          cls.DELIMITER_PARAM: delimiter,
          cls._ACCOUNT_ID_PARAM : account_id}))
+
     return chunks
 
   def to_json(self):
